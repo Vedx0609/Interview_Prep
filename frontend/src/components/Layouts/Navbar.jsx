@@ -1,26 +1,14 @@
-import React, { useState, useEffect } from "react";
 import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
-import { defaultTheme, dark } from "@clerk/themes";
 import { Outlet, Link, Navigate } from "react-router-dom";
+import { defaultTheme, dark } from "@clerk/themes";
 import { Moon, Sun } from "lucide-react";
+import { useTheme } from "../ThemeContext"; // Import the context
 import "./Navbar.css";
 
 export default function Navbar() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(prev => !prev);
-  };
+  const { isDarkMode, toggleDarkMode } = useTheme(); // Use the context
+  
   const authTheme = isDarkMode ? dark : defaultTheme;
-
-  // Apply dark mode to the entire document
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark-mode");
-    } else {
-      document.documentElement.classList.remove("dark-mode");
-    }
-  }, [isDarkMode]);
 
   return (
     <div className="navbar-layout">

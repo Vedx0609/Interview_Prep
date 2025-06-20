@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { SignIn, SignedIn, SignUp, SignedOut } from "@clerk/clerk-react";
 import { defaultTheme, dark} from "@clerk/themes";
 import { Moon, Sun } from "lucide-react";
