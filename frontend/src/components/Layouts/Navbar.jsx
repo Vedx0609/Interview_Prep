@@ -2,11 +2,11 @@ import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 import { Outlet, Link, Navigate } from "react-router-dom";
 import { defaultTheme, dark } from "@clerk/themes";
 import { Moon, Sun } from "lucide-react";
-import { useTheme } from "../ThemeContext"; // Import the context
+import { useTheme } from "../ThemeContext";
 import "./Navbar.css";
 
 export default function Navbar() {
-  const { isDarkMode, toggleDarkMode } = useTheme(); // Use the context
+  const { isDarkMode, toggleDarkMode } = useTheme();
   
   const authTheme = isDarkMode ? dark : defaultTheme;
 

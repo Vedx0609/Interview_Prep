@@ -1,25 +1,13 @@
-import { useState, useEffect } from "react";
 import { SignIn, SignedIn, SignUp, SignedOut } from "@clerk/clerk-react";
 import { defaultTheme, dark} from "@clerk/themes";
 import { Moon, Sun } from "lucide-react";
+import { useTheme } from "../ThemeContext";
 import "./AuthPage.css";
 
 export default function AuthPage() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(prev => !prev);
-  };
-  const authTheme = isDarkMode ? dark : defaultTheme;
-
-  // Apply dark mode to the entire document
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark-mode");
-    } else {
-      document.documentElement.classList.remove("dark-mode");
-    }
-  }, [isDarkMode]);
+  const { isDarkMode, toggleDarkMode } = useTheme();
+    
+    const authTheme = isDarkMode ? dark : defaultTheme;
 
   return (
     <div className="auth-page">
