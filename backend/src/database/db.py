@@ -1,4 +1,4 @@
-from sqlalchemy import Session
+from sqlalchemy.orm import Session
 from . import models
 from datetime import datetime
 from datetime import timedelta

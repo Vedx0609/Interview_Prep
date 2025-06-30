@@ -1,4 +1,4 @@
-from clerk_backend_api import Clerk, bearer_auth, AuthenticateRequestOptions
+from clerk_backend_api import Clerk, AuthenticateRequestOptions
 from fastapi import HTTPException
 
 import os
@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-clerk_sdk = Clerk(bearer_auth==os.getenv("CLERK_SECRET_KEY"))
+clerk_sdk = Clerk(bearer_auth=os.getenv("CLERK_SECRET_KEY"))
 
 def get_clerk_user_credentials(request):
     try:
