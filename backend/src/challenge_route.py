@@ -21,9 +21,10 @@ class ChallengeCreateRequest(BaseModel):
         }
 
 @router.post("/generate-challenge")
-async def generate_challenge(request, db: Session = Depends(get_db)):
+async def generate_challenge(request, request_obj, db: Session = Depends(get_db)):
     try:
-        user_details = get_clerk_user_credentials(request)
+        user_details = get_clerk_user_credentials(request_obj)
+        # print(user_details)
         user_id = user_details.get("user_id")
         quota = get_challenge_quota(db, user_id)
         if not quota:
@@ -37,11 +38,15 @@ async def generate_challenge(request, db: Session = Depends(get_db)):
             )
 
         challenge_data = generate_challenge_llm(request.difficulty)
+        # print(challenge_data)
         new_challenge = create_challenge(
             db=db,
             difficulty=request.difficulty,
             created_by=user_id,
-            **challenge_data
+            title=challenge_data["title"],
+            options=json.dumps(challenge_data["options"]),
+            correct_answer_id=challenge_data["correct_answer_id"],
+            explanation=challenge_data["explanation"]
         )
 
         quota.quota_left -= 1
