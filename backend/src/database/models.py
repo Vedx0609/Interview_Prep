@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy import Column, Integer, String, DateTime, Text
 from datetime import datetime
 
 import os
@@ -33,12 +33,12 @@ class Challenge(Base):
     
     id = Column(Integer, primary_key=True)
     difficulty = Column(String(50), nullable=False)
-    created_by = Column(String(50), nullable=False) # Clerk user ID
+    created_by = Column(String(100), nullable=False) # Clerk user ID
     date_created = Column(DateTime, default=datetime.now)
-    title = Column(String(100), nullable=False)
-    options = Column(String(100), nullable=False)  # String of options like "A,B,C,D"
-    correct_answer = Column(Integer, nullable=False)  # Index of the correct answer (0-based)
-    explanation = Column(String(200), nullable=False)
+    title = Column(Text, nullable=False)
+    options = Column(Text, nullable=False)  # String of options like "A,B,C,D"
+    correct_answer_id = Column(Integer, nullable=False)  # Index of the correct answer (0-based)
+    explanation = Column(Text, nullable=False)
 
 class ChallengeQuota(Base):
     __tablename__ = 'challenge_quota'

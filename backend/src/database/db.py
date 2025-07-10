@@ -3,17 +3,17 @@ from . import models
 from datetime import datetime
 from datetime import timedelta
 
-def get_challenge_quota(db, user_id):
+def get_challenge_quota(db: Session, user_id: str):
     return db.query(models.ChallengeQuota).filter(models.ChallengeQuota.user_id == user_id).first()
 
-def create_challenge_quota(db, user_id):
-    new_quota = models.ChallengeQuota(user_id=user_id, quota_left=10, last_date_for_reset=datetime.now())
+def create_challenge_quota(db: Session, user_id: str):
+    new_quota = models.ChallengeQuota(user_id=user_id)
     db.add(new_quota)
     db.commit()
     db.refresh(new_quota)
     return new_quota
 
-def reset_quota(db, quota):
+def reset_quota(db: Session, quota: models.ChallengeQuota):
     now = datetime.now()
     if now - quota.last_date_for_reset > timedelta(days=1):
         quota.quota_left = 10
@@ -22,13 +22,13 @@ def reset_quota(db, quota):
         db.refresh(quota)
     return quota
 
-def create_challenge(db, difficulty, created_by, title, options, correct_answer, explanation):
+def create_challenge(db: Session, difficulty: str, created_by: str, title: str, options: str, correct_answer_id: int, explanation: str):
     new_challenge = models.Challenge(
         difficulty=difficulty,
         created_by=created_by,
         title=title,
         options=options,
-        correct_answer=correct_answer,
+        correct_answer_id=correct_answer_id,
         explanation=explanation
     )
     db.add(new_challenge)

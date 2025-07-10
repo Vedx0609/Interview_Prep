@@ -24,7 +24,7 @@ def get_clerk_user_credentials(request):
                 detail="Unauthorized: Bad credentials",
             )
         
-        user_id = request_state.user_id
+        user_id = request_state.payload.get("sub")
         
         if not user_id:
             raise HTTPException(

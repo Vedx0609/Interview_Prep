@@ -20,7 +20,7 @@ def generate_challenge_llm(difficulty)->Dict[str, Any]:
 
     Return the challenge in the following JSON format:
     {
-        "title": "Title of the question",
+        "title": "The full question including any code snippets or examples",
         "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
         "correct_answer_id": 0, # Index of the correct answer in the options array (0-3)
         "explanation": "Detailed explanation of the correct answer and why the other options are incorrect."
@@ -41,6 +41,7 @@ def generate_challenge_llm(difficulty)->Dict[str, Any]:
         
         question_data = json.loads(response.choices[0].message.content)
         required_fields = ["title", "options", "correct_answer_id", "explanation"]
+        print(question_data)
         if not all(field in question_data for field in required_fields):
             raise ValueError("Generated question is missing required field.")
         
