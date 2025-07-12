@@ -14,7 +14,7 @@
   --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #f9ca24 100%);
   --shadow-neon: 0 0 20px rgba(0, 255, 136, 0.3);
   --shadow-dark: 0 4px 15px rgba(0, 0, 0, 0.5);
-  --font-mono: 'Courier New', 'Monaco', 'Menlo', monospace;
+  --font-mono: "Courier New", "Monaco", "Menlo", monospace;
 }
 
 /* Light mode overrides */
@@ -46,7 +46,7 @@
 }
 
 .challenge-container::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -57,7 +57,7 @@
 }
 
 .challenge-container::after {
-  content: '// MCQ Generator v2.1.0';
+  content: "// MCQ Generator v2.1.0";
   position: absolute;
   top: 1rem;
   right: 1.5rem;
@@ -80,12 +80,12 @@
 }
 
 .challenge-container h2::before {
-  content: '> ';
+  content: "> ";
   color: var(--text-accent);
 }
 
 .challenge-container h2::after {
-  content: '_';
+  content: "_";
   color: var(--text-accent);
   animation: blink 1s infinite;
   margin-left: 2px;
@@ -105,7 +105,7 @@
 }
 
 .challenge-quota::before {
-  content: '[INFO]';
+  content: "[INFO]";
   position: absolute;
   top: 0.5rem;
   right: 1rem;
@@ -132,7 +132,7 @@
 }
 
 .challenge-quota p:first-child::before {
-  content: '$ ';
+  content: "$ ";
   color: var(--text-accent);
   font-weight: 600;
 }
@@ -154,7 +154,7 @@
 }
 
 .challenge-difficulty label::before {
-  content: '◉ ';
+  content: "◉ ";
   color: var(--text-accent);
   margin-right: 0.5rem;
 }
@@ -215,27 +215,30 @@
 }
 
 .challenge-generate-button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
   transition: left 0.8s ease;
 }
 
 .challenge-generate-button::after {
-  content: ' [EXEC]';
+  content: " [EXEC]";
   opacity: 0.8;
   font-size: 0.8em;
 }
 
 .challenge-generate-button:hover {
   transform: translateY(-3px);
-  box-shadow: 
-    0 8px 30px rgba(0, 255, 136, 0.4),
-    0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 255, 136, 0.4), 0 4px 8px rgba(0, 0, 0, 0.2);
   background: linear-gradient(135deg, #00ff88 0%, #00b8ff 100%);
 }
 
@@ -257,7 +260,7 @@
 }
 
 .challenge-generate-button:disabled::after {
-  content: ' [DISABLED]';
+  content: " [DISABLED]";
 }
 
 .challenge-generate-button:disabled:hover {
@@ -276,7 +279,7 @@
 }
 
 .challenge-generate-button.loading::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -304,20 +307,30 @@
 }
 
 .error-message::before {
-  content: '[ERROR] ';
+  content: "[ERROR] ";
   font-weight: 600;
   color: var(--text-error);
 }
 
 /* Animations */
 @keyframes pulse-glow {
-  0% { box-shadow: 0 0 5px rgba(0, 255, 136, 0.5); }
-  100% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.8); }
+  0% {
+    box-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
+  }
 }
 
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes fadeInUp {
@@ -332,8 +345,12 @@
 }
 
 @keyframes spin {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 /* Staggered animation for form elements */
@@ -369,9 +386,7 @@
 
 :root:not(.dark-mode) .challenge-generate-button:hover {
   background: linear-gradient(135deg, #218838 0%, #1abc9c 100%);
-  box-shadow: 
-    0 8px 30px rgba(40, 167, 69, 0.4),
-    0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 30px rgba(40, 167, 69, 0.4), 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 768px) {
@@ -379,11 +394,11 @@
     margin: 1rem;
     padding: 1.5rem;
   }
-  
+
   .challenge-container::after {
     display: none;
   }
-  
+
   .challenge-container h2 {
     font-size: 1.5rem;
   }

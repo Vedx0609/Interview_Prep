@@ -5,6 +5,7 @@ import ClerkAuth from "./components/Authentication/ClerkAuth.jsx";
 import AuthPage from "./components/Authentication/AuthPage.jsx";
 import Navbar from "./components/Layouts/Navbar.jsx";
 import GenerationPage from "./components/Pages/GenerationPage.jsx";
+import HistoryPage from "./components/Pages/HistoryPage.jsx";
 import "./App.css";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/sign-up/*" element={<AuthPage />} />
           <Route path="/" element={<Navbar />}>
             <Route path="/" element={<GenerationPage />} />
+            <Route path="/history" element={<HistoryPage />} />
           </Route>
         </Routes>
       </ThemeProvider>

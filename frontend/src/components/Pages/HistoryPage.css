@@ -1,0 +1,58 @@
+.history-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  position: relative;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.history-title::before {
+  content: "> ";
+  color: var(--text-accent);
+  animation: blink 1.5s infinite;
+}
+
+.history-title::after {
+  content: "_";
+  color: var(--text-accent);
+  animation: blink 1.5s infinite;
+  margin-left: 2px;
+}
+
+.no-history {
+  margin: 0;
+  padding: 1.5rem 2rem;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-secondary);
+  border-left: 4px solid var(--text-warning);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-align: center;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.no-history::before {
+  content: "[EMPTY] ";
+  color: var(--text-warning);
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}

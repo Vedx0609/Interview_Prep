@@ -85,3 +85,13 @@ async def get_quota(request: Request, db: Session = Depends(get_db)):
         }
     quota = reset_quota(db, quota)
     return quota
+
+@router.get("/history")
+async def get_challenge_history(request: Request, db: Session = Depends(get_db)):
+    user_details = get_clerk_user_credentials(request)
+    user_id = user_details.get("user_id")
+    
+    challenges = get_user_challenges(db, user_id)
+    
+    return {"challenges": challenges}
+    

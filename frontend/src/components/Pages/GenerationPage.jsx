@@ -13,7 +13,7 @@ export default function GenerationPage() {
   const { makeRequest } = useApi();
 
   useEffect(() => {
-    fetchQuota()
+    fetchQuota();
   });
 
   const fetchQuota = async () => {
@@ -56,7 +56,6 @@ export default function GenerationPage() {
       <h2>Hello! You can generate MCQs here!</h2>
 
       <div className="challenge-quota">
-        
         <p>Questions you can generate today: {quota?.quota_left || 0}</p>
         {quota?.quota_left === 0 && (
           <p>Next reset: {getNextResetTime()?.toLocaleDateString()}</p>

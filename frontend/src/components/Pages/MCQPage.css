@@ -19,7 +19,7 @@
   --shadow-dark: 0 4px 15px rgba(0, 0, 0, 0.5);
   --shadow-error: 0 0 15px rgba(255, 71, 87, 0.3);
   --shadow-success: 0 0 15px rgba(46, 213, 115, 0.3);
-  --font-mono: 'Courier New', 'Monaco', 'Menlo', monospace;
+  --font-mono: "Courier New", "Monaco", "Menlo", monospace;
 }
 
 /* Light mode overrides */
@@ -55,7 +55,7 @@
 }
 
 .mcq-challenge::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -66,7 +66,7 @@
 }
 
 .mcq-challenge::after {
-  content: '// Challenge System v1.0';
+  content: "// Challenge System v1.0";
   position: absolute;
   top: 1rem;
   right: 1.5rem;
@@ -93,7 +93,7 @@
 }
 
 .mcq-challenge > p:first-child::before {
-  content: '[LEVEL] ';
+  content: "[LEVEL] ";
   color: var(--text-accent);
   font-weight: 600;
 }
@@ -117,7 +117,7 @@
 }
 
 .question-title::before {
-  content: 'Q: ';
+  content: "Q: ";
   color: var(--text-accent);
   font-weight: 700;
   font-size: 1.1em;
@@ -147,14 +147,14 @@
 }
 
 .option::before {
-  content: counter(option-counter, upper-alpha) ') ';
+  content: counter(option-counter, upper-alpha) ") ";
   color: var(--text-accent);
   font-weight: 600;
   margin-right: 0.5rem;
 }
 
 .option::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;
@@ -184,7 +184,11 @@
 
 /* Correct answer styling */
 .option.correct {
-  background: linear-gradient(135deg, rgba(46, 213, 115, 0.1) 0%, rgba(0, 255, 136, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(46, 213, 115, 0.1) 0%,
+    rgba(0, 255, 136, 0.1) 100%
+  );
   border-color: var(--text-success);
   color: var(--text-primary);
   box-shadow: var(--shadow-success);
@@ -194,7 +198,7 @@
 
 .option.correct::before {
   color: var(--text-success);
-  content: counter(option-counter, upper-alpha) ') ✓ ';
+  content: counter(option-counter, upper-alpha) ") ✓ ";
 }
 
 .option.correct::after {
@@ -210,7 +214,11 @@
 
 /* Incorrect answer styling */
 .option.incorrect {
-  background: linear-gradient(135deg, rgba(255, 71, 87, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 71, 87, 0.1) 0%,
+    rgba(255, 107, 53, 0.1) 100%
+  );
   border-color: var(--text-error);
   color: var(--text-primary);
   box-shadow: var(--shadow-error);
@@ -220,7 +228,7 @@
 
 .option.incorrect::before {
   color: var(--text-error);
-  content: counter(option-counter, upper-alpha) ') ✗ ';
+  content: counter(option-counter, upper-alpha) ") ✗ ";
 }
 
 .option.incorrect::after {
@@ -247,7 +255,7 @@
 }
 
 .explanation::before {
-  content: '[EXPLANATION]';
+  content: "[EXPLANATION]";
   position: absolute;
   top: 1rem;
   right: 1.5rem;
@@ -272,14 +280,18 @@
 }
 
 .explanation-text strong::after {
-  content: ' ';
+  content: " ";
   margin-right: 0.5rem;
 }
 
 /* Animations */
 @keyframes pulse-glow {
-  0% { box-shadow: 0 0 5px rgba(0, 255, 136, 0.5); }
-  100% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.8); }
+  0% {
+    box-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
+  }
 }
 
 @keyframes slideInUp {
@@ -309,13 +321,21 @@
 
 /* Light mode specific adjustments */
 :root:not(.dark-mode) .option.correct {
-  background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(32, 201, 151, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(40, 167, 69, 0.1) 0%,
+    rgba(32, 201, 151, 0.1) 100%
+  );
   border-color: var(--text-success);
   box-shadow: var(--shadow-success);
 }
 
 :root:not(.dark-mode) .option.incorrect {
-  background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(220, 53, 69, 0.1) 0%,
+    rgba(255, 107, 53, 0.1) 100%
+  );
   border-color: var(--text-error);
   box-shadow: var(--shadow-error);
 }
@@ -326,21 +346,21 @@
     margin: 1rem;
     padding: 1.5rem;
   }
-  
+
   .mcq-challenge::after {
     display: none;
   }
-  
+
   .question-title {
     font-size: 1.1rem;
     padding: 1rem;
   }
-  
+
   .option {
     padding: 1rem 1.25rem;
     font-size: 0.9rem;
   }
-  
+
   .explanation {
     padding: 1.25rem;
   }
