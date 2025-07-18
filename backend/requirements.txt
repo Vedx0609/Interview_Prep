@@ -1,0 +1,6 @@
+uvicorn
+pydantic
+fastapi
+clerk_backend_api
+sqlalchemy
+groq
