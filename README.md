@@ -1,5 +1,5 @@
 # Interview_Prep
-A full-stack web application that generates AI-powered coding multiple-choice questions (MCQs) for technical interview preparation. Users can sign in, generate MCQs of varying difficulty, view instant explanations, and track their challenge history—all with secure authentication and daily usage quotas.
+A full-stack web application that generates AI-powered coding multiple-choice questions (MCQs) for technical interview preparation. Users can sign in, generate MCQs of varying difficulty, view instant explanations, and track their challenge history - all with secure authentication and daily usage quotas.
 
 ---
 
@@ -16,7 +16,7 @@ A full-stack web application that generates AI-powered coding multiple-choice qu
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend:** React, Vite, Clerk (auth), CSS Modules
 - **Backend:** FastAPI, Pydantic, SQLAlchemy, MySQL, CORS
@@ -26,7 +26,7 @@ A full-stack web application that generates AI-powered coding multiple-choice qu
 
 ---
 
-## 📦 Getting Started
+## Getting Started
 
 ### 1. Clone the Repository
 
@@ -111,7 +111,7 @@ npm run dev
 
 ---
 
-## 📝 API Endpoints (Backend)
+## API Endpoints (Backend)
 
 - `POST /api/generate-challenge` — Generate a new MCQ (requires auth, consumes quota)
 - `GET /api/quota` — Get remaining daily quota for the user
@@ -119,7 +119,7 @@ npm run dev
 
 ---
 
-## 🧑‍💻 Development Notes
+## Development Notes
 
 - **Frontend:** Located in `/frontend`, built with React + Vite.
 - **Backend:** Located in `/backend`, built with FastAPI.
